@@ -18,10 +18,12 @@ import dto.SintomaDTO;
 public class PatologiaDAO {
 	
 		
+
 	public PatologiaDTO buscarPorId(int id) throws Throwable
 	{
 		Connection conn = null;
 		Statement stmt = null;
+		ResultSet rset = null;
 		
 		PatologiaDTO patologia = null;
 		
@@ -31,12 +33,7 @@ public class PatologiaDAO {
 		
 		try
 			{
-				
-	  	        stmt = conn.createStatement();
-	  	        
-				ResultSet rset = null;
-				
-				
+	  	        stmt = conn.createStatement();				
 				rset = stmt.executeQuery(Consultas.CONSULTA_PATOLOGIA_ID + id);
 				while (rset.next())
 					{
@@ -51,8 +48,7 @@ public class PatologiaDAO {
 				}
 			finally //libero recursos, de "adentro a fuera" , ResultSet, Statment, Conexion
 				{
-					if (stmt != null)	{ try {	stmt.close(); } catch (Exception e2) { e2.printStackTrace(); }}
-					if (conn != null) 	{ try { conn.close(); } catch (Exception e3) { e3.printStackTrace(); }}
+					pool.liberarRecursos(conn, stmt, rset);
 				}   
 	
 			return patologia;

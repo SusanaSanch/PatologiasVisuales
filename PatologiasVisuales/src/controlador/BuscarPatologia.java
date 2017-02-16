@@ -37,16 +37,57 @@ public class BuscarPatologia extends HttpServlet {
 		int idn = Integer.parseInt(id);
 		
 		PatologiaDTO pato_dto = null;
-		
+				 
 		try {
 			pato_dto = ps.buscarPatologiaPorId(idn);
+
 		} catch (Throwable e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
-		PrintWriter pw = response.getWriter();
-		pw.write(pato_dto.toString());
+		request.setAttribute("patologia", pato_dto);
+		
+		switch (idn) {
+		case 1:	
+			request.getRequestDispatcher(".//html//queratocono.jsp").forward(request, response);
+			break;
+		
+		case 2:
+					
+			break;
+		
+		case 3:
+			
+			break;
+		
+		case 4:
+			
+			request.getRequestDispatcher(".//html//catarata.jsp").forward(request, response);
+			break;
+		
+		case 5:
+			request.getRequestDispatcher(".//html//conjuntivitis.jsp").forward(request, response);
+			break;
+			
+		case 6:
+			request.getRequestDispatcher(".//html//deprendimiento.jsp").forward(request, response);
+			break;
+			
+		case 7:
+			request.getRequestDispatcher(".//html//acromatopsia.jsp").forward(request, response);
+			break;
+			
+		case 8:
+			request.getRequestDispatcher(".//html//estrabismo.jsp").forward(request, response);
+			break;
+			
+		case 9:
+			request.getRequestDispatcher(".//html//presbicia.jsp").forward(request, response);
+			break;
+			
+		}
+		
 		
 	}
 
