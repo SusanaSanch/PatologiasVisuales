@@ -10,6 +10,7 @@ public class PatologiaDTO {
 	private String tratamiento;
 	private String descripcion;
 	private List<SintomaDTO> lista_sintomas;
+	private String ruta_foto;
 	
 	
 	public PatologiaDTO(int id, String nombre, String causa,
@@ -22,6 +23,17 @@ public class PatologiaDTO {
 		this.tratamiento = tratamiento;
 		this.descripcion = descripcion;
 		this.lista_sintomas = lista_sintomas;
+		this.ruta_foto = "img/test-acromatopsia.jpg";
+	}
+
+
+	public String getRuta_foto() {
+		return ruta_foto;
+	}
+
+
+	public void setRuta_foto(String ruta_foto) {
+		this.ruta_foto = ruta_foto;
 	}
 
 

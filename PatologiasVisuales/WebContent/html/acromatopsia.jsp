@@ -66,7 +66,7 @@ body{direction:rtl;
     <center><table class="table table-bordered">
     <tbody>
     <tr>
-        <td><img src="img/test-acromatopsia.jpg"  class="img-rounded" alt="Cinque Terre" width="404" height="236">${patologia.descripcion}</td>
+        <td><img src="${patologia.ruta_foto}"  class="img-rounded" alt="Cinque Terre" width="404" height="236">${patologia.descripcion}</td>
     
    
    </tr>

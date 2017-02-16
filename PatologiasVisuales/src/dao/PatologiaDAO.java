@@ -56,4 +56,48 @@ public class PatologiaDAO {
 	}
 	
 	
+	
+	public List<PatologiaDTO> getListaIdPatologias()
+	{
+		Connection conn = null;
+		Statement stmt = null;
+		ResultSet rset = null;
+		
+		PatologiaDTO patologia = null;
+		
+		Pool pool = null;
+		pool = Pool.getInstance();
+		pool.getConnection();
+		int id_patol = 0;
+		List<PatologiaDTO> lista_patologias = new ArrayList<PatologiaDTO>();
+		
+		
+		try {
+			stmt = conn.createStatement();
+			rset = stmt.executeQuery(Consultas.CONSULTA_PATOLOGIAS);
+			
+				while (rset.next())
+				{
+					patologia = new PatologiaDTO(rset.getInt(1), rset.getString(2), rset.getString(3), rset.getString(4), rset.getString(5), SintomaDAO.buscarSintomasPatologiaID(rset.getInt(1), conn));
+				}
+				
+			} 
+		
+			catch (SQLException e)
+				{
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				
+				finally
+					{
+						pool.liberarRecursos(conn, stmt, rset);
+					}
+			
+		return lista_patologias;
+		
+	}
+	
+	
+	
 }

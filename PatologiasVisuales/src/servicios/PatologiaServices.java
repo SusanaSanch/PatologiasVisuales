@@ -16,4 +16,5 @@ public class PatologiaServices {
 		return pato_dto;
 	}
 	
+	
 }
