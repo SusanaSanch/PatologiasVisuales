@@ -47,46 +47,47 @@ public class BuscarPatologia extends HttpServlet {
 		}
 		
 		request.setAttribute("patologia", pato_dto);
+		request.getRequestDispatcher(".//html//plantilla_patologia.jsp").forward(request, response);
 		
-		switch (idn) {
-		case 1:	
-			request.getRequestDispatcher(".//html//queratocono.jsp").forward(request, response);
-			break;
-		
-		case 2:
-					
-			break;
-		
-		case 3:
-			
-			break;
-		
-		case 4:
-			
-			request.getRequestDispatcher(".//html//catarata.jsp").forward(request, response);
-			break;
-		
-		case 5:
-			request.getRequestDispatcher(".//html//conjuntivitis.jsp").forward(request, response);
-			break;
-			
-		case 6:
-			request.getRequestDispatcher(".//html//deprendimiento.jsp").forward(request, response);
-			break;
-			
-		case 7:
-			request.getRequestDispatcher(".//html//acromatopsia.jsp").forward(request, response);
-			break;
-			
-		case 8:
-			request.getRequestDispatcher(".//html//estrabismo.jsp").forward(request, response);
-			break;
-			
-		case 9:
-			request.getRequestDispatcher(".//html//presbicia.jsp").forward(request, response);
-			break;
-			
-		}
+//		switch (idn) {
+//		case 1:	
+//			
+//			break;
+//		
+//		case 2:
+//					
+//			break;
+//		
+//		case 3:
+//			
+//			break;
+//		
+//		case 4:
+//			
+//			request.getRequestDispatcher(".//html//catarata.jsp").forward(request, response);
+//			break;
+//		
+//		case 5:
+//			request.getRequestDispatcher(".//html//conjuntivitis.jsp").forward(request, response);
+//			break;
+//			
+//		case 6:
+//			request.getRequestDispatcher(".//html//desprendimiento.jsp").forward(request, response);
+//			break;
+//			
+//		case 7:
+//			request.getRequestDispatcher(".//html//acromatopsia.jsp").forward(request, response);
+//			break;
+//			
+//		case 8:
+//			request.getRequestDispatcher(".//html//estrabismo.jsp").forward(request, response);
+//			break;
+//			
+//		case 9:
+//			request.getRequestDispatcher(".//html//presbicia.jsp").forward(request, response);
+//			break;
+//			
+//		}
 		
 		
 	}

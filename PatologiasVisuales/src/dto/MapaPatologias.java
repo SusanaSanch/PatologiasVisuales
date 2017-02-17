@@ -1,9 +1,7 @@
-package servicios;
+package dto;
 
 import java.util.HashMap;
 import java.util.Map;
-
-import dto.PatologiaDTO;
 
 public class MapaPatologias {
 	

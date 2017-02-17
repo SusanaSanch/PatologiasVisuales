@@ -15,7 +15,7 @@ public class PatologiaDTO {
 	
 	public PatologiaDTO(int id, String nombre, String causa,
 			String tratamiento, String descripcion,
-			List<SintomaDTO> lista_sintomas) {
+			List<SintomaDTO> lista_sintomas, String ruta_foto) {
 		super();
 		this.id = id;
 		this.nombre = nombre;
@@ -23,7 +23,7 @@ public class PatologiaDTO {
 		this.tratamiento = tratamiento;
 		this.descripcion = descripcion;
 		this.lista_sintomas = lista_sintomas;
-		this.ruta_foto = "img/test-acromatopsia.jpg";
+		this.ruta_foto = ruta_foto;
 	}
 
 

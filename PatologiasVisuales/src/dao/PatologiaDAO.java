@@ -37,7 +37,7 @@ public class PatologiaDAO {
 				rset = stmt.executeQuery(Consultas.CONSULTA_PATOLOGIA_ID + id);
 				while (rset.next())
 					{
-						patologia = new PatologiaDTO(rset.getInt(1), rset.getString(2), rset.getString(3), rset.getString(4), rset.getString(5), SintomaDAO.buscarSintomasPatologiaID(id, conn));
+						patologia = new PatologiaDTO(rset.getInt(1), rset.getString(2), rset.getString(5), rset.getString(4), rset.getString(3), SintomaDAO.buscarSintomasPatologiaID(id, conn), rset.getString(6));
 					}
 			
 			}
@@ -67,7 +67,7 @@ public class PatologiaDAO {
 		
 		Pool pool = null;
 		pool = Pool.getInstance();
-		pool.getConnection();
+		conn = pool.getConnection();
 		int id_patol = 0;
 		List<PatologiaDTO> lista_patologias = new ArrayList<PatologiaDTO>();
 		
@@ -78,7 +78,8 @@ public class PatologiaDAO {
 			
 				while (rset.next())
 				{
-					patologia = new PatologiaDTO(rset.getInt(1), rset.getString(2), rset.getString(3), rset.getString(4), rset.getString(5), SintomaDAO.buscarSintomasPatologiaID(rset.getInt(1), conn));
+					patologia = new PatologiaDTO(rset.getInt(1), rset.getString(2), rset.getString(5), rset.getString(4), rset.getString(3), SintomaDAO.buscarSintomasPatologiaID(rset.getInt(1), conn),rset.getString(6) );
+					lista_patologias.add(patologia);
 				}
 				
 			} 
