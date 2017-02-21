@@ -7,6 +7,8 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
+import conexiones.Pool;
+import dto.PatologiaDTO;
 import dto.SintomaDTO;
 
 public class SintomaDAO {
@@ -35,5 +37,45 @@ public class SintomaDAO {
 		return lista_sintomas;
 	}
 
+	public static List<SintomaDTO> buscarPorInicial(String inicial)
+	{
+		Connection conn = null;
+		Statement stmt = null;
+		ResultSet rset = null;
+		
+		List<SintomaDTO> lista_sintomas = new ArrayList<SintomaDTO>();
+		SintomaDTO sintoma = null;
+		
+		Pool pool = null;
+		pool = Pool.getInstance();
+		conn = pool.getConnection();
+		
+		try
+			{
+	  	        stmt = conn.createStatement();			
+				rset = stmt.executeQuery(Consultas.CONSULTA_SINTOMAS_POR_INICIAL + inicial + "%'");
+				while (rset.next())
+					{
+						sintoma = new SintomaDTO(rset.getInt(1), rset.getString(2));
+						lista_sintomas.add(sintoma); 
+						System.out.println(sintoma.getDescripcion());
+					}
+			
+			}
+			
+			catch(Exception e)
+				{
+					e.printStackTrace();
+				}
+			finally //libero recursos, de "adentro a fuera" , ResultSet, Statment, Conexion
+				{
+					pool.liberarRecursos(conn, stmt, rset);
+				}   
+	
+			return lista_sintomas;
+	
+	}
 
+	
+	
 }
