@@ -14,9 +14,9 @@ public class SintomaServices {
 		
 		lista_sintomas = SintomaDAO.buscarPorInicial(inicial);
 		
-		for (SintomaDTO sin : lista_sintomas) {
-			System.out.println(sin.getDescripcion());
-		}
+//		for (SintomaDTO sin : lista_sintomas) {
+//			System.out.println(sin.getDescripcion()); //Para comprobar
+//		}
 		
 		return lista_sintomas;
 	}
