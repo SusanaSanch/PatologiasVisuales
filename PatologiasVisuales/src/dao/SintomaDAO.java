@@ -37,7 +37,7 @@ public class SintomaDAO {
 		return lista_sintomas;
 	}
 
-	public static List<SintomaDTO> buscarPorInicial(String inicial)
+	public List<SintomaDTO> buscarPorInicial(String inicial)
 	{
 		Connection conn = null;
 		Statement stmt = null;

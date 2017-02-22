@@ -10,10 +10,13 @@ function cambia() {
 	
 
 	var valor = document.getElementById("intro").value;
+	if (valor!='') 
+		{
+			xmlHttp.onreadystatechange = procesarEventos;
+			xmlHttp.open('GET', 'BuscarSintomasPorIniciales?intro='+valor, true); //indicamos como vamos a enviar los datos, en este caso con el metodo GET al archivo meses.php?num= el valor que le indiquemos en el textbox
+			xmlHttp.send(null);//cuerpo
+		}
 	
-	xmlHttp.onreadystatechange = procesarEventos;
-	xmlHttp.open('GET', 'BuscarSintomasPorIniciales?intro='+valor, true); //indicamos como vamos a enviar los datos, en este caso con el metodo GET al archivo meses.php?num= el valor que le indiquemos en el textbox
-	xmlHttp.send(null);//cuerpo
 	
 	
 }
