@@ -3,6 +3,7 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Insert title here</title>
+<link href="css/estilo.css" rel="stylesheet"/>
 <script>
 var xmlHttp = new XMLHttpRequest();
 
@@ -17,9 +18,15 @@ function cambia() {
 			xmlHttp.send(null);//cuerpo
 		}
 	
-	
-	
 }
+
+
+
+function seleccionaSintoma (text)
+{
+	alert (text);
+}
+
 
 function procesarEventos() 
 {
@@ -28,6 +35,22 @@ function procesarEventos()
 	      if(xmlHttp.status==200)// y el código de la cabecera http es bueno
 	          {
 				alert("He recibido " + xmlHttp.responseText);//cuerpo de la respuesta, recoge la response del servlet
+				
+				var raiz = document.getElementById("raizul");
+				raiz.innerHTML = "";
+				var li;
+				var lista_sintomas = JSON.parse(xmlHttp.responseText);
+				var sintoma;
+				var descripcion;
+				for (var i = 0; i < lista_sintomas.length; i++)
+				{
+				  sintoma = lista_sintomas[i].id;
+				  descripcion = lista_sintomas[i].descripcion;
+				  li = document.createElement("li");
+				  li.appendChild(document.createTextNode(descripcion));
+				  li.setAttribute("onclick", "seleccionaSintoma("+sintoma+");");
+				  raiz.appendChild(li);
+				}
 	          }
 	      else
 		      {
@@ -39,6 +62,13 @@ function procesarEventos()
 </script>
 </head>
 <body>
+<div id="divmain">
 <input type="text" id="intro" onkeyup="cambia()">
+</div>
+<div id="lista">
+<ul id="raizul">
+</ul>
+</div>
+
 </body>
 </html>
