@@ -25,6 +25,10 @@ function cambia() {
 function seleccionaSintoma (text)
 {
 	alert (text);
+	//xmlHttp.onreadystatechange = procesarEventos; //Pendiente de hacer nueva funcion para recoger las patologías
+	xmlHttp.open('GET', 'BuscarPatologiaPorIdSintoma?id='+text, true); //indicamos como vamos a enviar los datos, en este caso con el metodo GET al archivo meses.php?num= el valor que le indiquemos en el textbox
+	xmlHttp.send(null);//cuerpo
+	
 }
 
 
