@@ -15,7 +15,7 @@ import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.mysql.fabric.xmlrpc.base.Array;
 
-import dto.SintomaDTO;
+import dto.SintomaDTOSu;
 import servicios.SintomaServices;
 
 /**
@@ -39,13 +39,13 @@ public class BuscarSintomasPorIniciales extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		SintomaServices ss = new SintomaServices();
-		List<SintomaDTO> lista_sintomas = new ArrayList<SintomaDTO>();
+		List<SintomaDTOSu> lista_sintomas = new ArrayList<SintomaDTOSu>();
 		String inicial = null;
 		inicial = request.getParameter("intro");
 		lista_sintomas = ss.buscarSintomaPorInicial(inicial);
 		
 		Gson gson = new Gson();
-		Type tipoListaSintoma = new TypeToken<List<SintomaDTO>>(){}.getType();
+		Type tipoListaSintoma = new TypeToken<List<SintomaDTOSu>>(){}.getType();
 		String sintomas = gson.toJson(lista_sintomas,tipoListaSintoma);
 		
 		response.setContentType("application/json");

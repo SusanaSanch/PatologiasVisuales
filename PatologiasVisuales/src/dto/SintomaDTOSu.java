@@ -1,12 +1,12 @@
 package dto;
 
-public class SintomaDTO {
+public class SintomaDTOSu {
 	
 	private int id;
 	private String descripcion;
 	
 	
-	public SintomaDTO(int id, String descripcion) {
+	public SintomaDTOSu(int id, String descripcion) {
 		super();
 		this.id = id;
 		this.descripcion = descripcion;
@@ -32,6 +32,10 @@ public class SintomaDTO {
 		this.descripcion = descripcion;
 	}
 	
-	
+	@Override
+	public String toString() {
+		// TODO Auto-generated method stub
+		return ("id : " + this.id + ". Descripción : " + this.descripcion);
+	}
 
 }

@@ -4,14 +4,16 @@ import java.util.ArrayList;
 import java.util.List;
 
 import dao.SintomaDAO;
-import dto.SintomaDTO;
+import dao.SintomaDAOSu;
+import dto.SintomasDTO;
+import dto.SintomaDTOSu;
 
 public class SintomaServices {
 	
-	public List<SintomaDTO> buscarSintomaPorInicial(String inicial)
+	public List<SintomaDTOSu> buscarSintomaPorInicial(String inicial)
 	{
-		List<SintomaDTO> lista_sintomas = new ArrayList<SintomaDTO>();
-		SintomaDAO sdao = new SintomaDAO();
+		List<SintomaDTOSu> lista_sintomas = new ArrayList<SintomaDTOSu>();
+		SintomaDAOSu sdao = new SintomaDAOSu();
 		lista_sintomas = sdao.buscarPorInicial(inicial);
 		
 //		for (SintomaDTO sin : lista_sintomas) {
@@ -21,4 +23,13 @@ public class SintomaServices {
 		return lista_sintomas;
 	}
 
+	public List<SintomasDTO> listarSintomasOrdenados()
+	{	
+		List<SintomasDTO> lista_sintomas = null;
+		
+			lista_sintomas = SintomaDAO.getSintomasOrdenados(); 
+		
+		return lista_sintomas;
+	}
+	
 }

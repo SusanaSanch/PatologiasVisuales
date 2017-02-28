@@ -12,20 +12,20 @@ import com.jcraft.jsch.JSch;
 import com.jcraft.jsch.Session;
 
 import conexiones.Pool;
-import dto.PatologiaDTO;
-import dto.SintomaDTO;
+import dto.PatologiasDTO;
+import dto.SintomaDTOSu;
 
 public class PatologiaDAO {
 	
 		
-
-	public PatologiaDTO buscarPorId(int id) throws Throwable
+/*
+	public PatologiasDTO buscarPorId(int id) throws Throwable
 	{
 		Connection conn = null;
 		Statement stmt = null;
 		ResultSet rset = null;
 		
-		PatologiaDTO patologia = null;
+		PatologiasDTO patologia = null;
 		
 		Pool pool = null;
 		pool = Pool.getInstance();
@@ -37,7 +37,7 @@ public class PatologiaDAO {
 				rset = stmt.executeQuery(Consultas.CONSULTA_PATOLOGIA_ID + id);
 				while (rset.next())
 					{
-						patologia = new PatologiaDTO(rset.getInt(1), rset.getString(2), rset.getString(5), rset.getString(4), rset.getString(3), SintomaDAO.buscarSintomasPatologiaID(id, conn), rset.getString(6));
+						patologia = new PatologiasDTO(rset.getInt(1), rset.getString(2), rset.getString(5), rset.getString(4), rset.getString(3), SintomaDAO.buscarSintomasPatologiaID(id, conn), rset.getString(6));
 					}
 			
 			}
@@ -54,22 +54,22 @@ public class PatologiaDAO {
 			return patologia;
 		
 	}
+	*/
 	
 	
-	
-	public List<PatologiaDTO> getListaIdPatologias()
+	public List<PatologiasDTO> getListaIdPatologias()
 	{
 		Connection conn = null;
 		Statement stmt = null;
 		ResultSet rset = null;
 		
-		PatologiaDTO patologia = null;
+		PatologiasDTO patologia = null;
 		
 		Pool pool = null;
 		pool = Pool.getInstance();
 		conn = pool.getConnection();
 		int id_patol = 0;
-		List<PatologiaDTO> lista_patologias = new ArrayList<PatologiaDTO>();
+		List<PatologiasDTO> lista_patologias = new ArrayList<PatologiasDTO>();
 		
 		
 		try {
@@ -78,7 +78,7 @@ public class PatologiaDAO {
 			
 				while (rset.next())
 				{
-					patologia = new PatologiaDTO(rset.getInt(1), rset.getString(2), rset.getString(5), rset.getString(4), rset.getString(3), SintomaDAO.buscarSintomasPatologiaID(rset.getInt(1), conn),rset.getString(6) );
+					patologia = new PatologiasDTO(rset.getInt(1), rset.getString(2), rset.getString(5), rset.getString(4), rset.getString(3), SintomaDAO.buscarSintomasPatologiaID(rset.getInt(1), conn),rset.getString(6) );
 					lista_patologias.add(patologia);
 				}
 				

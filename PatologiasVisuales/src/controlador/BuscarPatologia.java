@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import dto.PatologiaDTO;
+import dto.PatologiasDTO;
 import servicios.PatologiaServices;
 
 /**
@@ -36,7 +36,7 @@ public class BuscarPatologia extends HttpServlet {
 		String id = request.getParameter("id");
 		int idn = Integer.parseInt(id);
 		
-		PatologiaDTO pato_dto = null;
+		PatologiasDTO pato_dto = null;
 				 
 		try {
 			pato_dto = ps.buscarPatologiaPorId(idn);

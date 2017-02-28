@@ -11,7 +11,7 @@ import javax.servlet.annotation.WebListener;
 import conexiones.ConexionSsh;
 import dao.PatologiaDAO;
 import dto.MapaPatologias;
-import dto.PatologiaDTO;
+import dto.PatologiasDTO;
 
 /**
  * Application Lifecycle Listener implementation class InicioYFin
@@ -42,18 +42,18 @@ public class InicioYFin implements ServletContextListener {
          // TODO Auto-generated method stub
     	try {
 			ConexionSsh.conectate_A_SSH();
-			HashMap<Integer, PatologiaDTO> mapa_pato = new HashMap<Integer, PatologiaDTO>();
+			HashMap<Integer, PatologiasDTO> mapa_pato = new HashMap<Integer, PatologiasDTO>();
 			PatologiaDAO pdao = new PatologiaDAO();
-			List<PatologiaDTO> lista_patos = new ArrayList<PatologiaDTO>();
+			List<PatologiasDTO> lista_patos = new ArrayList<PatologiasDTO>();
 			
 			lista_patos = pdao.getListaIdPatologias();
 			System.out.println(lista_patos.get(1).getNombre() + " Listener");
-			for (PatologiaDTO patologiaDTO : lista_patos) 
+			for (PatologiasDTO patologiaDTO : lista_patos) 
 				{
 					mapa_pato.put(patologiaDTO.getId(), patologiaDTO);
 				}
 			
-			MapaPatologias.setMapa_patologias(mapa_pato);
+			MapaPatologias.setMapapatologia(mapa_pato);
 			
 		} catch (Throwable e) {
 			// TODO Auto-generated catch block

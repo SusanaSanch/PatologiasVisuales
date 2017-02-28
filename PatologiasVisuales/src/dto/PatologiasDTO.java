@@ -2,20 +2,20 @@ package dto;
 
 import java.util.List;
 
-public class PatologiaDTO {
+public class PatologiasDTO {
 
 	private int id;
 	private String nombre;
 	private String causa;
 	private String tratamiento;
 	private String descripcion;
-	private List<SintomaDTO> lista_sintomas;
+	private List<SintomasDTO> lista_sintomas;
 	private String ruta_foto;
 	
 	
-	public PatologiaDTO(int id, String nombre, String causa,
+	public PatologiasDTO(int id, String nombre, String causa,
 			String tratamiento, String descripcion,
-			List<SintomaDTO> lista_sintomas, String ruta_foto) {
+			List<SintomasDTO> lista_sintomas, String ruta_foto) {
 		super();
 		this.id = id;
 		this.nombre = nombre;
@@ -24,6 +24,12 @@ public class PatologiaDTO {
 		this.descripcion = descripcion;
 		this.lista_sintomas = lista_sintomas;
 		this.ruta_foto = ruta_foto;
+	}
+	
+	@Override
+	public boolean equals(Object obj) {
+		// TODO Auto-generated method stub
+		return this.id == ((PatologiasDTO)obj).id;
 	}
 
 
@@ -87,12 +93,12 @@ public class PatologiaDTO {
 	}
 
 
-	public List<SintomaDTO> getLista_sintomas() {
+	public List<SintomasDTO> getLista_sintomas() {
 		return lista_sintomas;
 	}
 
 
-	public void setLista_sintomas(List<SintomaDTO> lista_sintomas) {
+	public void setLista_sintomas(List<SintomasDTO> lista_sintomas) {
 		this.lista_sintomas = lista_sintomas;
 	}
 	
